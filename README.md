@@ -6,3 +6,5 @@ Developed in the context of the Interreg Project: [Cammini della Regina](http://
 <img src="app/src/main/assets/www/img/image.jpg" alt="alt text">
 
 Presentation: https://slides.com/mantonovic/deck-1
+
+APK Download: https://geoservice.ist.supsi.ch/camre/tour/geoIVS/

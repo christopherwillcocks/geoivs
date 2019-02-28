@@ -1,0 +1,36 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ch.supsi.ist.camre.paths.PathForm" >
+
+
+    <item android:id="@+id/survey_action_record"
+        android:icon="@drawable/ic_action_record"
+        android:title="@string/action_done"
+        android:showAsAction="ifRoom"
+        android:visible="false"/>
+
+    <item android:id="@+id/survey_action_pause"
+        android:icon="@drawable/ic_action_pause"
+        android:title="@string/action_done"
+        android:showAsAction="ifRoom"
+        android:visible="false"/>
+
+
+    <item android:id="@+id/harvesting_action"
+        android:icon="@drawable/ic_action_hiking_play"
+        android:title="@string/action_done"
+        android:showAsAction="ifRoom" />
+
+    <!--
+    <item android:id="@+id/harvesting_pause"
+        android:icon="@drawable/ic_action_hiking_pause"
+        android:title="@string/action_done"
+        android:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_stop"
+        android:icon="@drawable/ic_action_stop"
+        android:title="@string/action_done"
+        android:showAsAction="ifRoom" />
+    -->
+
+</menu>

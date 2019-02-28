@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:id="@+id/listPathStatus"
+        android:layout_width="10dp"
+        android:layout_height="fill_parent"/>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/listPathName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Titolo"
+            android:textColor="@android:color/primary_text_light"
+            android:padding="4dp" />
+
+        <TextView
+            android:id="@+id/listPathDifficulty"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="Descrizione"
+            android:singleLine="true"
+            android:layout_marginTop="4dp"
+            android:textColor="@android:color/secondary_text_light"
+            android:padding="4dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/listPathStats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Stats"
+                android:textColor="@android:color/tertiary_text_light"
+                android:layout_gravity="center_vertical" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:id="@+id/padlock_img"
+            android:visibility="invisible"
+            android:src="@drawable/ic_action_padlock"
+            android:contentDescription="padlock" />
+    </LinearLayout>
+
+
+</LinearLayout>

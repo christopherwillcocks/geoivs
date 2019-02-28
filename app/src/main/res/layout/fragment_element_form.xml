@@ -1,0 +1,272 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ch.supsi.ist.camre.paths.ElementForm">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/scrollView"
+            android:background="#ffeeeeee"
+            android:layout_weight="0.65">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@android:color/white"
+                android:padding="16dp"
+                android:layout_weight="0.65">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/element_type"
+                        android:layout_gravity="center_vertical|left" />
+
+                    <Spinner
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/element_type"
+                        android:prompt="@string/element_type_prompts"
+                        android:spinnerMode="dialog"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical|right" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/element_status"
+                        android:layout_gravity="center_vertical|left" />
+
+                    <Spinner
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/element_status"
+                        android:prompt="@string/element_status_prompts"
+                        android:spinnerMode="dialog"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical|right" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Lon."
+                        android:layout_gravity="center_vertical|left" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/element_start_point_lon"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical|left"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Lat."
+                        android:layout_gravity="center_vertical|left" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/element_start_point_lat"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical|left"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="± 8 m"
+                        android:id="@+id/element_start_point_accuracy"
+                        android:layout_gravity="center_vertical"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/element_end_point_view"
+                    android:layout_margin="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Lon."
+                        android:layout_gravity="center_vertical|left" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/element_end_point_lon"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical|left"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Lat."
+                        android:layout_gravity="center_vertical|left" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/element_end_point_lat"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical|left"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="± 15 m"
+                        android:id="@+id/element_end_point_accuracy"
+                        android:layout_gravity="center_vertical"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/element_surface_message"
+                    android:background="@android:color/black"
+                    android:padding="4dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_action_warning" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/surface_end_point_message"
+                        android:textColor="@android:color/white"
+                        android:layout_marginLeft="4dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/element_width"
+                        android:layout_gravity="center_vertical|left" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/element_width"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical|left"
+                        android:maxLines="1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/element_height"
+                        android:layout_gravity="center_vertical|left" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/element_height"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical|left"
+                        android:maxLines="1" />
+
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="8dp">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/element_horizontal">
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/element_map"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.55">
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

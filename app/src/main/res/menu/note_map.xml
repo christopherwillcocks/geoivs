@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/note_map_note_point"
+        android:title="Set Note Point"
+        android:showAsAction="always" />
+    <item android:id="@+id/note_map_action_save"
+        android:icon="@drawable/ic_action_save"
+        android:title="@string/action_done"
+        android:showAsAction="always" />
+</menu>

@@ -1,0 +1,29 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ch.supsi.ist.camre.paths.WalkerActivityTest">
+
+    <!--
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:id="@+id/walkerPanelHeader"
+        android:layout_height="30dp">
+    </FrameLayout>-->
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/walkerPanelTest"
+        android:layout_weight="1">
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:id="@+id/walkerPanelFooter"
+        android:layout_height="30dp">
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:title="Survey"
+        android:key="pref_key_storage_settings">
+
+        <CheckBoxPreference
+            android:key="GPS_ONLY"
+            android:title="@string/GPS_ONLY"
+            android:defaultValue="true" />
+
+        <!--
+        <ListPreference
+            android:key="accuracy_preference"
+            android:title="GPS Accuracy"
+            android:summary="Bla bla bla bla bla"
+            android:entries="@array/entries_list_preference"
+            android:entryValues="@array/entryvalues_list_preference"
+            android:dialogTitle="Title List" />-->
+
+        <ch.supsi.ist.camre.paths.preferences.NumberPickerPreference
+            android:key="PATH_ACCURACY"
+            android:title="@string/PATH_ACCURACY"
+            android:summary="Bla bla bla bla bla"
+            android:defaultValue="55" />
+
+        <ch.supsi.ist.camre.paths.preferences.NumberPickerPreference
+            android:key="PATH_POINTS_DISTANCE"
+            android:title="@string/PATH_POINTS_DISTANCE"
+            android:summary="Bla bla bla bla bla"
+            android:defaultValue="55" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

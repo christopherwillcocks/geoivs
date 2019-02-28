@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/map_locate_note"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top|right"
+    android:drawableLeft="@drawable/ic_action_map_note"
+    android:layout_marginRight="15dp"
+    android:background="@drawable/rounded"
+    android:layout_marginTop="15dp"
+    android:padding="8dp"
+    android:text="Note"/>

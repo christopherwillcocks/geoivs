@@ -1,0 +1,232 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ch.supsi.ist.camre.paths.PathForm">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:background="#ffeeeeee">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|top"
+            android:layout_margin="20dp"
+            android:background="@android:color/white"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/path_name"
+                    android:layout_gravity="center_vertical|left" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/path_name"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|left"
+                    android:maxLines="1" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/path_path"
+                    android:layout_gravity="center_vertical|left" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/path_path"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|left"
+                    android:maxLines="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/path_characteristics_activity"
+                    android:layout_gravity="center_vertical|left" />
+
+                <Spinner
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/path_characteristics_activity"
+                    android:prompt="@string/path_characteristics_activity_prompt"
+                    android:spinnerMode="dialog"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/path_status"
+                    android:layout_gravity="center_vertical|left" />
+
+                <Spinner
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/path_status"
+                    android:prompt="@string/path_status_prompts"
+                    android:spinnerMode="dialog"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/path_characteristics_difficulty"
+                    android:layout_gravity="center_vertical|left" />
+                <Spinner
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/path_characteristics_difficulty"
+                    android:prompt="@string/path_characteristics_difficulty_prompt"
+                    android:spinnerMode="dialog"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/path_characteristics_protection"
+                    android:layout_gravity="center_vertical|left" />
+                <Spinner
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/path_characteristics_protection"
+                    android:prompt="@string/path_characteristics_protection_prompt"
+                    android:spinnerMode="dialog"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/path_characteristics_risk"
+                    android:layout_gravity="center_vertical|left" />
+                <Spinner
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/path_characteristics_risk"
+                    android:prompt="@string/path_characteristics_risk_prompt"
+                    android:spinnerMode="dialog"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/path_characteristics_hazard"
+                    android:id="@+id/label6"
+                    android:layout_gravity="center_vertical|left" />
+
+                <Spinner
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/path_characteristics_hazard"
+                    android:prompt="@string/path_characteristics_hazard_prompt"
+                    android:spinnerMode="dialog"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:id="@+id/linearLayout">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/path_characteristics_circular"
+                    android:layout_gravity="center_vertical|left" />
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/path_characteristics_circular"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:textOff="No"
+                    android:textOn="Yes" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

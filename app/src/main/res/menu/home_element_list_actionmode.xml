@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/home_element_upload"
+        android:icon="@drawable/ic_action_upload"
+        android:title="Upload"
+        android:showAsAction="always" />
+
+    <item android:id="@+id/home_element_sync"
+        android:icon="@drawable/ic_action_download"
+        android:title="Download"
+        android:showAsAction="always" />
+
+    <item android:id="@+id/home_element_delete"
+        android:icon="@drawable/ic_action_discard"
+        android:title="@string/action_delete"
+        android:showAsAction="always" />
+
+</menu>

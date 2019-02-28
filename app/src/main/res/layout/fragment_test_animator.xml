@@ -1,0 +1,42 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ch.supsi.ist.camre.paths.TestAnimatorFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:id="@+id/LinearLayout02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/buttonNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Previous" />
+
+            <Button
+                android:id="@+id/buttonPrevious"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Next  " />
+        </LinearLayout>
+
+        <ViewAnimator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/viewAnimator">
+
+            <include layout="@layout/fragment_path_form" android:id="@+id/fragment_path_form"/>
+            <include layout="@layout/fragment_survey_form" android:id="@+id/fragment_survey_form"/>
+            <include layout="@layout/fragment_element_form" android:id="@+id/fragment_element_form"/>
+
+        </ViewAnimator>
+
+    </LinearLayout>
+
+</FrameLayout>

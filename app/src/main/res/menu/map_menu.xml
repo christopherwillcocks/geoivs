@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<item android:id="@+id/path_map_osm"
+        android:title="Open Street Map"
+        android:showAsAction="never" />
+    <item android:id="@+id/path_map_google_map"
+        android:title="Google Map"
+        android:showAsAction="never" />
+    <item android:id="@+id/path_map_google_satellite"
+        android:title="Google Satellite"
+        android:showAsAction="never" />-->
+    <item android:id="@+id/path_map_gps"
+        android:title="@string/GPS_ONLY"
+        android:showAsAction="never"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:checkable="true"/>
+    <item android:id="@+id/path_settings"
+        android:title="Settings"
+        android:showAsAction="never"
+        android:icon="@android:drawable/ic_menu_preferences"/>
+</menu>

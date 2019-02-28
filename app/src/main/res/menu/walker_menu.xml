@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ch.supsi.ist.camre.paths.WalkerActivityTest" >
+    <item android:id="@+id/walker_close"
+        android:title="Finish"
+        android:showAsAction="never" />
+    <item android:id="@+id/walker_settings"
+        android:title="Settings"
+        android:showAsAction="never"
+        android:icon="@android:drawable/ic_menu_preferences"/>
+</menu>

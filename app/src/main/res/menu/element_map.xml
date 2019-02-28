@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<item android:id="@+id/element_map_start_point"
+        android:title="Set Start Point"
+        android:showAsAction="always" />
+    <item android:id="@+id/element_map_end_point"
+        android:title="Set End point"
+        android:showAsAction="always" />
+    <item android:id="@+id/element_map_add_end_point"
+        android:title="Add End Point"
+        android:showAsAction="always" />
+    <item android:id="@+id/element_map_action_save"
+        android:icon="@drawable/ic_action_save"
+        android:title="@string/action_done"
+        android:showAsAction="always" />-->
+</menu>

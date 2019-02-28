@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/harvesting_action"
+        android:icon="@drawable/ic_action_hiking_play"
+        android:title="@string/action_done"
+        android:showAsAction="ifRoom" />
+
+</menu>

@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ch.supsi.ist.camre.paths.ElementFormActivity" >
+    <!--<item android:id="@+id/note_action_map"
+        android:icon="@drawable/ic_action_map"
+        android:title="@string/action_done"
+        android:showAsAction="always" />-->
+    <item android:id="@+id/note_action_save"
+        android:icon="@drawable/ic_action_save"
+        android:title="@string/action_done"
+        android:showAsAction="always" />
+    <item android:id="@+id/note_action_delete"
+        android:icon="@drawable/ic_action_discard"
+        android:title="@string/action_done"
+        android:showAsAction="always" />
+</menu>

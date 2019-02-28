@@ -1,0 +1,33 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="250dp"
+    tools:context="ch.supsi.ist.camre.paths.NotePreview"
+    android:paddingLeft="4dp"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#fff0f0f0">
+
+        <ImageView
+            android:layout_width="@dimen/note_preview_img_width"
+            android:layout_height="@dimen/note_preview_img_height"
+            android:id="@+id/note_preview_thumb" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/note_preview_text"
+            android:padding="8dp"
+            android:background="#ffffffff"
+            android:layout_margin="1dp" />
+    </LinearLayout>
+</FrameLayout>

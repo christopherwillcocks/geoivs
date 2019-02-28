@@ -1,0 +1,46 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ch.supsi.ist.camre.paths.ElementFormActivity" >
+    <!--<item android:id="@+id/element_action_map"
+        android:icon="@drawable/ic_action_map"
+        android:title="@string/action_done"
+        android:showAsAction="always" />-->
+    <item android:id="@+id/element_action_camera"
+        android:icon="@drawable/ic_action_camera"
+        android:title="@string/action_done"
+        android:showAsAction="always" />
+    <item android:id="@+id/element_action_audio"
+        android:icon="@drawable/ic_action_mic"
+        android:title="@string/action_done"
+        android:showAsAction="always" />
+    <item android:id="@+id/element_action_video"
+        android:icon="@drawable/ic_action_video"
+        android:title="@string/action_done"
+        android:showAsAction="always" />
+
+    <item android:id="@+id/element_map_start_point"
+        android:title="Set Start Point"
+        android:icon="@drawable/ic_action_map_start"
+        android:showAsAction="always|withText" />
+
+    <item android:id="@+id/element_map_end_point"
+        android:title="Set End point"
+        android:icon="@drawable/ic_action_map_end"
+        android:showAsAction="always|withText"  />
+
+    <item android:id="@+id/element_map_add_end_point"
+        android:title="Add End Point"
+        android:icon="@drawable/ic_action_map_end"
+        android:showAsAction="always|withText" />
+
+    <item android:id="@+id/element_action_save"
+        android:icon="@drawable/ic_action_save"
+        android:title="@string/action_done"
+        android:showAsAction="always" />
+
+    <item android:id="@+id/element_action_delete"
+        android:icon="@drawable/ic_action_discard"
+        android:title="@string/action_delete"
+        android:showAsAction="ifRoom|collapseActionView"/>
+
+</menu>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/home_list_new"
+        android:icon="@drawable/ic_action_new"
+        android:title="@string/path_new_form"
+        android:showAsAction="always" />
+
+</menu>

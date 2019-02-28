@@ -1,0 +1,37 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="4dp"
+    android:background="#000000"
+    tools:context="ch.supsi.ist.camre.paths.GeolocationWorker">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/gpsicon"
+        android:src="@drawable/ic_action_map_end"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="GPS"
+        android:id="@+id/walker_status_gps"
+        android:textColor="#ffffffff"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Powered by SUPSI"
+        android:textColor="#ffffffff"
+        android:id="@+id/textView"
+        android:layout_gravity="center_vertical" />
+
+</LinearLayout>

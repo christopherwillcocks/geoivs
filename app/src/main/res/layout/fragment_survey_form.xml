@@ -1,0 +1,260 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ch.supsi.ist.camre.paths.SurveyForm">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:id="@+id/survey_half_top"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#ffeeeeee"
+            android:minHeight="300dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:layout_margin="4dp">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="25dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/path_left"
+                    android:gravity="center"
+                    android:layout_marginBottom="4dp" />
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:id="@+id/leftActiveList"
+                    android:background="@android:color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp">
+                <!--
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="Bridge"
+                                android:gravity="center"
+                                android:layout_marginBottom="4dp" />
+
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#ffffffff"
+                                android:layout_weight="0.40">
+
+                                <Button
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Start bridge"
+                                    android:id="@+id/survey_bridge_start"
+                                    android:layout_gravity="center_vertical|left"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_marginLeft="16dp" />
+
+                                <Button
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="End bridge"
+                                    android:id="@+id/survey_bridge_end"
+                                    android:layout_gravity="center_vertical|right"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_marginRight="16dp" />
+
+                            </FrameLayout>
+                -->
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="25dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/path_surface"
+                    android:gravity="center"
+                    android:layout_marginBottom="4dp" />
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/surfaceActiveList"
+                    android:background="@android:color/white" />
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/bridgeActiveList"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start bridge"
+                        android:id="@+id/survey_bridge_start"
+                        android:layout_gravity="center"
+                        android:background="#fffffbfb"
+                        android:padding="4dp" />
+
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:layout_margin="4dp">
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="25dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/path_right"
+                    android:id="@+id/textView3"
+                    android:gravity="center"
+                    android:layout_marginBottom="4dp" />
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:id="@+id/rightActiveList"
+                    android:background="@android:color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffeeeeee"
+            android:layout_weight="2">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:layout_margin="4dp" >
+
+                <TextView
+                    android:id="@+id/survey_half_bottom_left_title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/path_add_left"
+                    android:gravity="center"
+                    android:background="#ff000000"
+                    android:textColor="#ffffffff"
+                    android:padding="4dp" />
+
+                <FrameLayout
+                    android:id="@+id/leftList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:background="@android:color/white">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="To start the Path survey first of all you have to chose a surface"
+                        android:id="@+id/survey_half_bottom_left_tip"
+                        android:layout_gravity="center"
+                        android:padding="12dp" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp" >
+
+                <TextView
+                    android:id="@+id/survey_half_bottom_center_title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/path_add_surface"
+                    android:gravity="center"
+                    android:textColor="#ffffffff"
+                    android:background="#ff000000"
+                    android:padding="4dp" />
+
+                <FrameLayout
+                    android:id="@+id/surfaceList"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:background="@android:color/white">
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/survey_half_bottom_right"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:layout_margin="4dp" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/path_add_right"
+                    android:gravity="center"
+                    android:textColor="#ffffffff"
+                    android:background="#ff000000"
+                    android:padding="4dp" />
+
+                <FrameLayout
+                    android:id="@+id/rightList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:background="@android:color/white">
+
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

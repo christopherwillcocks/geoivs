@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CAM.RE - Rilievo</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Impostazioni</string>
+    <string name="action_done">Fatto</string>
+    <string name="action_delete">Elimina</string>
+    <string name="action_edit">Modifica</string>
+    <string name="action_move_right">Sposta nel lato destro</string>
+    <string name="action_move_left">Sposta nel lato sinistro</string>
+    <string name="action_open_map">Apri mappa</string>
+    <string name="action_restore_previous">Elimina e ripristina superficie precedente</string>
+    <string name="action_delete_element">Sei sicuro di volere eliminare definitivamente questo Elemento?</string>
+    <string name="action_delete_note">Sei sicuro di volere eliminare definitivamente questa Nota?</string>
+    <string name="del_also_media">Elimina anche le note multimediali</string>
+
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (opzionale)</string>
+    <string name="action_sign_in">Login oppure Registrati</string>
+    <string name="action_sign_in_short">Login</string>
+
+    <string name="error_invalid_email">L\'email non e valid</string>
+    <string name="error_invalid_password">La password e troppo corta</string>
+    <string name="error_incorrect_password">La password e sbagliata</string>
+    <string name="error_field_required">Questo campo e obbligatorio</string>
+
+    <string name="accuracy">Accuratezza</string>
+    <string name="altitude">Altezza</string>
+
+    <string-array name="navigation_drawer_array">
+        <item>Ricerca</item>
+        <item>Recenti</item>
+        <item>Nuovo percorso</item>
+        <item>Impostazioni</item>
+        <item>Prove</item>
+        <item>Logout</item>
+    </string-array>
+
+    <string name="title_activity_route_form">RouteForm</string>
+
+    <string-array name="route_type">
+        <item>Malaysia</item>
+        <item>United States</item>
+        <item>Indonesia</item>
+        <item>France</item>
+        <item>Italy</item>
+        <item>Singapore</item>
+        <item>New Zealand</item>
+        <item>India</item>
+    </string-array>
+
+    <string name="title_activity_walker">WalkerActivity</string>
+    <string name="title_activity_element_form">Dettagli elemento</string>
+
+    <string name="tab_survey">Rilievo</string>
+    <string name="tab_path">Panoramica</string>
+    <string name="tab_map">Carta</string>
+
+    <!-- PATH STRINGS  ********************************************************  -->
+    <string name="path_name">Nome</string>
+    <string name="path_path">Percorso</string>
+    <string name="path_edit_form">modifica</string>
+    <string name="path_new_form">Nuovo percorso</string>
+    <string name="path_survey_form">Rilievo percorso</string>
+    <string name="path_left">Lato Sinistro</string>
+    <string name="path_right">Lato Destro</string>
+    <string name="path_surface">Superficie</string>
+    <string name="path_add_left">Aggiungi Lato Sinistro</string>
+    <string name="path_add_right">Aggiungi Lato Destro</string>
+    <string name="path_add_surface">Cambia Superficie</string>
+
+    <!-- PATH STATUS -->
+    <string name="path_status">Stato</string>
+    <string name="path_status_prompts">Scegli lo stato</string>
+    <string-array name="path_status">
+        <item>http://www.camre.ch/path/status/approved;Approvato</item>
+        <item>http://www.camre.ch/path/status/standby;In Attesa</item>
+        <item>http://www.camre.ch/path/status/banned;Vietato</item>
+    </string-array>
+
+    <!-- PATH CHARACTERISTICS -->
+    <string name="path_characteristics_difficulty">Difficoltà</string>
+    <string name="path_characteristics_difficulty_prompt">Scegli La difficoltà</string>
+    <string-array name="path_characteristics_difficulty">
+        <item>http://www.camre.ch/path/difficulty/T1;T1 - Escursionismo</item>
+        <item>http://www.camre.ch/path/difficulty/T2;T2 - Escursione di montagna</item>
+        <item>http://www.camre.ch/path/difficulty/T3;T3 - Escursione di montagna impegnativa</item>
+        <item>http://www.camre.ch/path/difficulty/T4;T4 - Itinerario alpino</item>
+        <item>http://www.camre.ch/path/difficulty/T5;T5 - Itinerario alpino impegnativo</item>
+        <item>http://www.camre.ch/path/difficulty/T6;T6 - Itinerario alpino difficile</item>
+    </string-array>
+
+    <!-- PATH PROTECTION -->
+    <string name="path_characteristics_protection">Protezione</string>
+    <string name="path_characteristics_protection_prompt">Scegli La Protezione</string>
+    <string-array name="path_characteristics_protection">
+        <item>http://www.camre.ch/path/protection/sidewalk;Marciapiede</item>
+        <item>http://www.camre.ch/path/protection/parapet_railing;Ringhiera Parapetto</item>
+    </string-array>
+
+    <!-- PATH RISK -->
+    <string name="path_characteristics_risk">Rischio</string>
+    <string name="path_characteristics_risk_prompt">Scegli il rischio</string>
+    <string-array name="path_characteristics_risk">
+        <item>http://www.camre.ch/path/risk/none;Nessuno</item>
+        <item>http://www.camre.ch/path/risk/mud;Fango</item>
+        <item>http://www.camre.ch/path/risk/flood;Alluvione</item>
+        <item>http://www.camre.ch/path/risk/erosive_groove;Solco Erosivo</item>
+        <item>http://www.camre.ch/path/risk/traffic;Traffico</item>
+        <item>http://www.camre.ch/path/risk/footprint;Footprint</item>
+        <item>http://www.camre.ch/path/risk/rocks_and_stones;Rocce e pietre</item>
+    </string-array>
+
+    <!-- PATH HAZARD -->
+    <string name="path_characteristics_hazard">Pericolo</string>
+    <string name="path_characteristics_hazard_prompt">Scegli il Pericolo</string>
+    <string-array name="path_characteristics_hazard">
+        <item>http://www.camre.ch/path/risk/none_various_indefiable;NULLO/Vario/Indefinibile</item>
+        <item>http://www.camre.ch/path/risk/residual;Residuo</item>
+        <item>http://www.camre.ch/path/risk/low;Basso</item>
+        <item>http://www.camre.ch/path/risk/mid;Medio</item>
+        <item>http://www.camre.ch/path/risk/height;Alto</item>
+    </string-array>
+
+    <!-- PATH CIRCULAR SWITCH -->
+    <string name="path_characteristics_circular">Circolare</string>
+
+    <!-- PATH ACTIVITY -->
+    <string name="path_characteristics_activity">Attività</string>
+    <string name="path_characteristics_activity_prompt">Scegli l\'attività</string>
+    <string-array name="path_characteristics_activity">
+        <item>http://www.camre.ch/activity/hicking;Passeggiata</item>
+        <item>http://www.camre.ch/activity/mountain_biking;Mountain Biking</item>
+        <item>http://www.camre.ch/activity/walking;A Piedi</item>
+        <item>http://www.camre.ch/activity/running;Corsa</item>
+        <item>http://www.camre.ch/activity/snowshoeing;Racchette da Neve</item>
+        <item>http://www.camre.ch/activity/cycling;Bicicletta</item>
+        <item>http://www.camre.ch/activity/horseback_riding;Equitazione</item>
+    </string-array>
+
+    <!-- ELEMENTS STRINGS  ********************************************************  -->
+
+    <!-- ELEMENT STATUS -->
+    <string name="element_status">Stato</string>
+    <string name="element_status_prompts">Scegli lo Stato</string>
+    <string-array name="element_status">
+        <item>http://www.camre.ch/note/status/good;Buono</item>
+        <item>http://www.camre.ch/note/status/damaged;Danneggiato</item>
+        <item>http://www.camre.ch/note/status/seriously_damaged;Seriamente Danneggiato</item>
+        <item>http://www.camre.ch/note/status/distrupted;Distrutto</item>
+    </string-array>
+
+    <!-- ELEMENT TYPE -->
+    <string name="element_type">Tipo</string>
+    <string name="element_type_prompts">Scegli il Tipo</string>
+
+    <!-- ELEMENTS TYPE (SIDE) -->
+    <string-array name="elements_side_type">
+        <item>http://www.camre.ch/properties/scarp/terrain/down;Scarpata in discesa;Descrizione Foo Bar</item>
+        <item>http://www.camre.ch/properties/scarp/terrain/up;Scarpata in salita;Descrizione Foo Bar</item>
+        <item>http://www.camre.ch/properties/wall/stone;Muro in pietra;Descrizione Foo Bar</item>
+        <item>http://www.camre.ch/properties/wall/cement;Muro in cemento;Descrizione Foo Bar</item>
+        <item>http://www.camre.ch/properties/fence/wood;Staccionata in legno;Descrizione Foo Bar</item>
+        <item>http://www.camre.ch/properties/woods;Bosco;Descrizione Foo Bar</item>
+    </string-array>
+
+    <!-- ELEMENTS TYPE (SURFACE) -->
+    <string-array name="elements_surface_type">
+        <item>http://www.camre.ch/properties/surface/pavement;Pavimento;Descrizione Foo Bar</item>
+        <item>http://www.camre.ch/properties/surface/gravel;Sterrato;Descrizione Foo Bar</item>
+        <item>http://www.camre.ch/properties/surface/asphalt;Asfalto;Descrizione Foo Bar</item>
+        <item>http://www.camre.ch/properties/surface/wood;Legno;Descrizione Foo Bar</item>
+        <item>http://www.camre.ch/properties/surface/shingle;Ciottoli;Descrizione Foo Bar</item>
+    </string-array>
+
+    <!-- ELEMENTS TYPE (BRIDGE) -->
+    <string-array name="elements_bridge_type">
+        <item>http://www.camre.ch/properties/bridge;Ponte;Descrizione Foo Bar</item>
+    </string-array>
+
+    <!-- ELEMENT SIZE -->
+    <string name="element_width">Larghezza</string>
+    <string name="element_height">Altezza</string>
+
+
+    <!-- NOTES STRINGS  ******************************************************** -->
+
+
+    <!-- NOTE STATUS -->
+    <string name="note_description">Descrizione</string>
+    <string name="path_viewer_time_scale">Tempo</string>
+    <string name="path_viewer_distance_scale">Distanza</string>
+    <string name="action_login_skip">Non adesso</string>
+    <string name="welcome">Benvenuto</string>
+    <string name="access_denied">La password o il nome utente inserito non è corretto.</string>
+    <string name="tab_info">Info</string>
+    <string name="path_bridge">Ponte</string>
+    <string name="surface_end_point_message">Nelle superfici, per aggiungere il punto di chiusura bisogna scegliere la superficie successiva</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_walker_activity_test">WalkerActivityTest</string>
+    <string name="title_activity_settings">Impostazioni</string>
+    <string name="GPS_ONLY">Usa solo il GPS</string>
+    <string name="PATH_ACCURACY">Accuratezza accettabile</string>
+    <string name="PATH_POINTS_DISTANCE">Distanza tra un punto e l\'altro</string>
+    <string name="action_close_path">Sei sicuro di voler chiudere il percorso? Non sarai piu in grado di riaprirlo.</string>
+    <string name="path_lenght">Lunghezza</string>
+    <string name="path_notes">Note</string>
+    <string name="element">Element</string>
+    <string name="action_prev">Previews</string>
+    <string name="action_next">Next</string>
+
+</resources>

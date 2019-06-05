@@ -24,8 +24,9 @@ import com.vividsolutions.jts.io.WKTReader;
 import com.vividsolutions.jts.linearref.LengthLocationMap;
 import com.vividsolutions.jts.linearref.LinearLocation;
 import com.vividsolutions.jts.linearref.LocationIndexedLine;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;

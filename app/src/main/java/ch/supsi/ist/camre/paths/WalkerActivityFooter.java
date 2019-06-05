@@ -1,9 +1,11 @@
 package ch.supsi.ist.camre.paths;
 
 
+import android.Manifest;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.pm.PackageManager;
 import android.location.GpsSatellite;
 import android.location.GpsStatus;
 import android.location.Location;
@@ -11,6 +13,10 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.os.SystemClock;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ComponentActivity;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +37,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.TimeZone;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import ch.supsi.ist.camre.paths.data.Point;
 import ch.supsi.ist.camre.paths.data.Position;
 
@@ -38,9 +46,11 @@ import ch.supsi.ist.camre.paths.data.Position;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class WalkerActivityFooter extends Fragment  implements GoogleApiClient.ConnectionCallbacks ,
-        GoogleApiClient.OnConnectionFailedListener, LocationListener, GpsStatus.Listener{
+public class WalkerActivityFooter extends Fragment implements GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener, LocationListener, GpsStatus.Listener, ActivityCompat.OnRequestPermissionsResultCallback {
 
+    private static final int MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 0;
+    private static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private long lastFix;
 
     //TextView status;
@@ -53,7 +63,6 @@ public class WalkerActivityFooter extends Fragment  implements GoogleApiClient.C
     private GoogleApiClient mGoogleApiClient;
 
     //private ActivityRecognitionClient mActivityRecognitionClient;
-
     // Define an object that holds accuracy and frequency parameters
     LocationRequest mLocationRequest;
 
@@ -87,7 +96,9 @@ public class WalkerActivityFooter extends Fragment  implements GoogleApiClient.C
         public static int CONNECTING = 0;
         public static int FIRSTFIX = 1;
         public static int CALCULATING = 2;
+
         public void onUpdates(int event, Position position, int accuracy);
+
         public void onResult(int event, Location location, GpsStatus gpsStatus);
     }
 
@@ -130,7 +141,7 @@ public class WalkerActivityFooter extends Fragment  implements GoogleApiClient.C
         mLocationRequest = LocationRequest.create()
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
                 .setInterval(UPDATE_INTERVAL);
-                //.setFastestInterval(FASTEST_INTERVAL);
+        //.setFastestInterval(FASTEST_INTERVAL);
 
         locationManager = (LocationManager) getActivity()
                 .getSystemService(WalkerActivityTest.LOCATION_SERVICE);
@@ -138,7 +149,7 @@ public class WalkerActivityFooter extends Fragment  implements GoogleApiClient.C
     }
 
 
-    public Position getPosition(Location location){
+    public Position getPosition(Location location) {
         double lon = location.getLongitude();
         double lat = location.getLatitude();
         TimeZone tz = TimeZone.getTimeZone("UTC");
@@ -152,24 +163,78 @@ public class WalkerActivityFooter extends Fragment  implements GoogleApiClient.C
         return pos;
     }
 
-    public void connectGPS(){
+    public void connectGPS() {
         // Connect the client.
-        if(!mGoogleApiClient.isConnected()) {
+        if (!mGoogleApiClient.isConnected()) {
             mGoogleApiClient.connect();
         }
     }
 
-    public void disconnectGps(){
-        if(mGoogleApiClient.isConnected()){
+    public void disconnectGps() {
+        if (mGoogleApiClient.isConnected()) {
             mGoogleApiClient.disconnect();
         }
     }
 
-    public Location getLastKnownGpsLocation(){
+    private void requestPermissionFineLocation() {
+        ActivityCompat.requestPermissions(getActivity(),
+                new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
+    }
+
+    private void requestPermissionCoarseLocation() {
+        ActivityCompat.requestPermissions(getActivity(),
+                new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+                MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                           int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                } else {
+                    // nothing happens
+                }
+            }
+            case MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                } else {
+                    // nothing happens
+                }
+            }
+        }
+    }
+
+    public Location getLastKnownGpsLocation() {
+        if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            requestPermissionFineLocation();
+            requestPermissionCoarseLocation();
+        } else {
+            // Permission OK
+        }
         return locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
     }
 
-    public Position getLastKnownGpsPosition(){
+
+    public Position getLastKnownGpsPosition() {
+        if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            requestPermissionFineLocation();
+            requestPermissionCoarseLocation();
+        } else {
+            // Permission OK
+        }
         return this.getPosition(locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER));
     }
 
@@ -194,55 +259,68 @@ public class WalkerActivityFooter extends Fragment  implements GoogleApiClient.C
         super.onPause();
     }
 
-    public void addFusionLocationListener(LocationListener listener){
+    public void addFusionLocationListener(LocationListener listener) {
         //System.out.println("WalkerActivityFooter, Adding FusionLocationListener: " + listener.getClass().getCanonicalName());
-        if(!locationListeners.contains(listener)) {
+        if (!locationListeners.contains(listener)) {
             locationListeners.add(listener);
             if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
+                if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                    requestPermissionFineLocation();
+                    requestPermissionCoarseLocation();
+                } else {
+                    // Permission OK
+                }
                 LocationServices.FusedLocationApi.requestLocationUpdates(
                         mGoogleApiClient, mLocationRequest, listener);
             }
         }
     }
 
-    public void addCustomGpsListener(GpsListener listener){
+    public void addCustomGpsListener(GpsListener listener) {
         //System.out.println("WalkerActivityFooter, Adding GpsListener: " + listener.getClass().getCanonicalName());
-        if(!gpsListeners.contains(listener)) {
+        if (!gpsListeners.contains(listener)) {
             gpsListeners.add(listener);
         }
     }
 
-    public void addGpsStatusListener(GpsStatus.Listener listener){
+    public void addGpsStatusListener(GpsStatus.Listener listener) {
         //System.out.println("WalkerActivityFooter, Adding GpsStatus: " + listener.getClass().getCanonicalName());
-        if(!gpsStatusListeners.contains(listener)) {
+        if (!gpsStatusListeners.contains(listener)) {
             gpsStatusListeners.add(listener);
             if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
+                if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                    requestPermissionFineLocation();
+                } else {
+                    // Permission OK
+                }
                 locationManager.addGpsStatusListener(listener);
             }
         }
     }
 
-    public void removeFusionLocationListener(LocationListener listener){
+    public void removeFusionLocationListener(LocationListener listener) {
         //System.out.println("WalkerActivityFooter, Removing FusionLocationListener: " + listener.getClass().getCanonicalName());
-        if(locationListeners.contains(listener)) {
+        if (locationListeners.contains(listener)) {
             locationListeners.remove(listener);
-            if(mGoogleApiClient!=null && mGoogleApiClient.isConnected()) {
+            if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
                 LocationServices.FusedLocationApi.removeLocationUpdates(
                         mGoogleApiClient, listener);
             }
         }
     }
 
-    public void removeGpsListener(GpsListener listener){
+    public void removeGpsListener(GpsListener listener) {
         //System.out.println("WalkerActivityFooter, Removing GpsListener: " + listener.getClass().getCanonicalName());
-        if(gpsListeners.contains(listener)) {
+        if (gpsListeners.contains(listener)) {
             gpsListeners.remove(listener);
         }
     }
 
-    public void removeGpsStatusistener(GpsStatus.Listener listener){
+    public void removeGpsStatusistener(GpsStatus.Listener listener) {
         //System.out.println("WalkerActivityFooter, Removing GpsStatus: " + listener.getClass().getCanonicalName());
-        if(gpsStatusListeners.contains(listener)) {
+        if (gpsStatusListeners.contains(listener)) {
             gpsStatusListeners.remove(listener);
             locationManager.removeGpsStatusListener(listener);
         }
@@ -251,14 +329,21 @@ public class WalkerActivityFooter extends Fragment  implements GoogleApiClient.C
     @Override
     public void onConnected(Bundle bundle) {
         //System.out.println("WalkerActivityFooter, LocationWorker: onConnected");
-        if(locationListeners.size()>0){
-            for (LocationListener listener: locationListeners){
+        if (locationListeners.size() > 0) {
+            for (LocationListener listener : locationListeners) {
+                if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                    requestPermissionFineLocation();
+                    requestPermissionCoarseLocation();
+                } else {
+                    // Permission OK
+                }
                 LocationServices.FusedLocationApi.requestLocationUpdates(
                         mGoogleApiClient, mLocationRequest, listener);
             }
         }
-        if(gpsStatusListeners.size()>0){
-            for (GpsStatus.Listener listener: gpsStatusListeners) {
+        if (gpsStatusListeners.size() > 0) {
+            for (GpsStatus.Listener listener : gpsStatusListeners) {
                 locationManager.addGpsStatusListener(listener);
             }
         }
@@ -288,6 +373,13 @@ public class WalkerActivityFooter extends Fragment  implements GoogleApiClient.C
         //System.out.println("onGpsStatusChanged..");
 
         ImageView icon = (ImageView) view.findViewById(R.id.gpsicon);
+        if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            requestPermissionFineLocation();
+            requestPermissionCoarseLocation();
+        } else {
+            // Permission OK
+        }
         GpsStatus gpsStatus = locationManager.getGpsStatus(null);
         TextView status = (TextView) view.findViewById(R.id.walker_status_gps);
 

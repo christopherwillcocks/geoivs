@@ -1,7 +1,9 @@
 package ch.supsi.ist.camre.paths;
 
+import android.Manifest;
 import android.app.Fragment;
 import android.content.IntentSender;
+import android.content.pm.PackageManager;
 import android.location.GpsStatus;
 import android.location.Location;
 import android.location.LocationManager;
@@ -22,11 +24,16 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class GeolocationWorker extends Fragment implements GoogleApiClient.ConnectionCallbacks ,
-        GoogleApiClient.OnConnectionFailedListener, GpsStatus.Listener{
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+public class GeolocationWorker extends Fragment implements GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener, GpsStatus.Listener, ActivityCompat.OnRequestPermissionsResultCallback {
 
     private final static int
             CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
+    private static final int MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 0;
+    private static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
 
     private LocationManager locationManager;
     private GoogleApiClient mGoogleApiClient;
@@ -55,7 +62,8 @@ public class GeolocationWorker extends Fragment implements GoogleApiClient.Conne
     private ArrayList<LocationListener> locationListeners = new ArrayList<LocationListener>();
     private ArrayList<GpsStatus.Listener> gpsListeners = new ArrayList<GpsStatus.Listener>();
 
-    public GeolocationWorker() {}
+    public GeolocationWorker() {
+    }
 
 
     @Override
@@ -113,13 +121,52 @@ public class GeolocationWorker extends Fragment implements GoogleApiClient.Conne
         setRetainInstance(true);
     }
 
-    public void connectGPS(){
+    public void connectGPS() {
         // Connect the client.
         mGoogleApiClient.connect();
     }
 
-    public void disconnectGps(){
+    public void disconnectGps() {
         mGoogleApiClient.disconnect();
+    }
+
+    private void requestPermissionFineLocation() {
+        ActivityCompat.requestPermissions(getActivity(),
+                new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
+    }
+
+    private void requestPermissionCoarseLocation() {
+        ActivityCompat.requestPermissions(getActivity(),
+                new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+                MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                           int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                } else {
+                    // nothing happens
+                }
+            }
+            case MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                } else {
+                    // nothing happens
+                }
+            }
+        }
     }
 
     @Override
@@ -138,10 +185,17 @@ public class GeolocationWorker extends Fragment implements GoogleApiClient.Conne
         mGoogleApiClient.disconnect();
     }
 
-    public void addFusionLocationListener(LocationListener listener){
-        if(!locationListeners.contains(listener)) {
+    public void addFusionLocationListener(LocationListener listener) {
+        if (!locationListeners.contains(listener)) {
             locationListeners.add(listener);
             if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
+                if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                    requestPermissionFineLocation();
+                    requestPermissionCoarseLocation();
+                } else {
+                    // Permission OK
+                }
                 LocationServices.FusedLocationApi.requestLocationUpdates(
                         mGoogleApiClient, mLocationRequest, listener);
             }
@@ -149,19 +203,25 @@ public class GeolocationWorker extends Fragment implements GoogleApiClient.Conne
     }
 
 
-    public void addGpsStatusListener(GpsStatus.Listener listener){
-        if(!gpsListeners.contains(listener)) {
+    public void addGpsStatusListener(GpsStatus.Listener listener) {
+        if (!gpsListeners.contains(listener)) {
             gpsListeners.add(listener);
             if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
+                if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                    requestPermissionFineLocation();
+                } else {
+                    // Permission OK
+                }
                 locationManager.addGpsStatusListener(listener);
             }
         }
     }
 
-    public void removeFusionLocationListener(LocationListener listener){
-        if(locationListeners.contains(listener)) {
+    public void removeFusionLocationListener(LocationListener listener) {
+        if (locationListeners.contains(listener)) {
             locationListeners.remove(listener);
-            if(mGoogleApiClient!=null && mGoogleApiClient.isConnected()) {
+            if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
                 LocationServices.FusedLocationApi.removeLocationUpdates(
                         mGoogleApiClient, listener);
             }
@@ -171,14 +231,21 @@ public class GeolocationWorker extends Fragment implements GoogleApiClient.Conne
     @Override
     public void onConnected(Bundle bundle) {
         System.out.println("LocationWorker: onConnected");
-        if(locationListeners.size()>0){
-            for (LocationListener listener: locationListeners){
+        if (locationListeners.size() > 0) {
+            for (LocationListener listener : locationListeners) {
+                if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                    requestPermissionFineLocation();
+                    requestPermissionCoarseLocation();
+                } else {
+                    // Permission OK
+                }
                 LocationServices.FusedLocationApi.requestLocationUpdates(
                         mGoogleApiClient, mLocationRequest, listener);
             }
         }
-        if(gpsListeners.size()>0){
-            for (GpsStatus.Listener listener: gpsListeners) {
+        if (gpsListeners.size() > 0) {
+            for (GpsStatus.Listener listener : gpsListeners) {
                 locationManager.addGpsStatusListener(listener);
             }
         }
@@ -188,7 +255,7 @@ public class GeolocationWorker extends Fragment implements GoogleApiClient.Conne
     @Override
     public void onGpsStatusChanged(int event) {
 
-        switch (event){
+        switch (event) {
 
             case GpsStatus.GPS_EVENT_STARTED:
                 System.out.println(" >>> GpsStatus.GPS_EVENT_STARTED");
@@ -205,6 +272,12 @@ public class GeolocationWorker extends Fragment implements GoogleApiClient.Conne
 
         }
 
+        if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            requestPermissionFineLocation();
+         } else {
+            // Permission OK
+        }
         GpsStatus st = locationManager.getGpsStatus(null);
 
         Location gpsLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);

@@ -3,7 +3,7 @@ package ch.supsi.ist.camre.paths.data;
 import com.vividsolutions.jts.geom.*;
 import com.vividsolutions.jts.linearref.LinearGeometryBuilder;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
 import java.util.ArrayList;

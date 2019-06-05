@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.couchbase.lite.CouchbaseLiteException;
 import com.couchbase.lite.Document;
 
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.IOException;
 import java.text.DateFormat;

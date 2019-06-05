@@ -6,8 +6,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
-import android.support.v4.app.NavUtils;
-import android.support.v4.app.TaskStackBuilder;
+import androidx.core.app.NavUtils;
+import androidx.core.app.TaskStackBuilder;
 import android.view.MenuItem;
 
 public class SettingsActivity extends Activity {

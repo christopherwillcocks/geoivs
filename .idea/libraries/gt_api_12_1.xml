@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="gt-api-12.1">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/app/libs/gt-api-12.1.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
